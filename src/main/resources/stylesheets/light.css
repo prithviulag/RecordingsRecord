@@ -1,0 +1,38 @@
+@font-face {
+    src: url("../fonts/WorkSans-Light.ttf");
+}
+
+.root {
+    -fx-font-family: 'Work Sans Light', sans-serif;
+    -fx-background-color: linear-gradient(from 5% 50% to 95% 50%, #2dc25e, #8c6d99);
+}
+
+Label {
+    -fx-font-size: 25px;
+    -fx-text-fill: #000000;
+}
+
+#lowerText {
+    -fx-font-size: 15px;
+}
+
+TextField, PasswordField {
+    -fx-width: 75%;
+    -fx-max-width: 200px;
+}
+
+Button {
+    -fx-border-width: 2px;
+    -fx-border-color: #adadad;
+    -fx-text-fill: #adadad;
+    -fx-background-color: linear-gradient(from 5% 50% to 95% 50%, #1b6e37, #46354d);
+}
+
+Button:hover {
+    -fx-text-fill: #000000;
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #1b6e37, #46354d);
+}
+
+#introExit {
+    -fx-border-width: 0px;
+}
