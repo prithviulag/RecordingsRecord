@@ -1,6 +1,3 @@
-!resrec.cmd
-!resrec.jar
-
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -39,3 +36,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+!out/artifacts/ResRec_jar/resrec.cmd
+!out/artifacts/ResRec_jar/resrec.jar
