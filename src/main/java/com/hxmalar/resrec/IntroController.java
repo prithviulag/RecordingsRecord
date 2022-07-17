@@ -11,6 +11,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
+import java.io.FileNotFoundException;
+
 public class IntroController {
     @FXML
     private VBox container;
@@ -29,13 +31,13 @@ public class IntroController {
     @FXML
     private Button themeToggle;
     private Scene introScene;
-    private boolean inDarkTheme;
+    private String themeSetting;
 
     @FXML
-    protected void generateAssets()
+    protected void generateAssets(String themeArg)
     {
         introScene = introHeading.getScene();
-        toggleTheme();
+        changeTheme(themeArg);
 
         Image logoImage = new Image(getClass().getResourceAsStream("/assets/resrecLogo.png"));
         //looks in src/main/resources folder, which is bundled into jar at compile time!
@@ -64,20 +66,41 @@ public class IntroController {
         Platform.exit();
     }
 
+    private void changeTheme(String themeArg) throws IllegalArgumentException
+    {
+        try {
+            introScene.getStylesheets().clear();
+            introScene.getStylesheets().add(getClass().getResource("/stylesheets/" + themeArg + ".css").toExternalForm());
+            themeSetting = themeArg;
+
+            if (themeSetting.equals("dark"))
+            {
+                themeToggle.setText("Light theme");
+            }
+            else
+            {
+                themeToggle.setText("Dark theme");
+            }
+        }
+        catch (NullPointerException x) {
+            throw new IllegalArgumentException(themeSetting);
+        }
+    }
     @FXML
     protected void toggleTheme()
     {
-        if (inDarkTheme)
+        //will need to be changed if more than dark/light are supported
+        if (themeSetting.equals("dark"))
         {
-            introScene.getStylesheets().clear();
-            introScene.getStylesheets().add(getClass().getResource("/stylesheets/light.css").toExternalForm());
-            inDarkTheme = false;
+            changeTheme("light");
+        }
+        else if (themeSetting.equals("light"))
+        {
+            changeTheme("dark");
         }
         else
         {
-            introScene.getStylesheets().clear();
-            introScene.getStylesheets().add(getClass().getResource("/stylesheets/dark.css").toExternalForm());
-            inDarkTheme = true;
+            System.out.println("Current theme does not support toggling.");
         }
     }
 }
