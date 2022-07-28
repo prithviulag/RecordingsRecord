@@ -17,9 +17,6 @@ public class LoginAuth
         {
             KeySpec keySpecif = new PBEKeySpec(input.toCharArray(), hashSalt, 65536, 128);
             SecretKeyFactory keyFact = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-            byte[] earlyHashPass = keyFact.generateSecret(keySpecif).getEncoded();
-            System.out.println(earlyHashPass);
-
             byte[] hashPassword = keyFact.generateSecret(keySpecif).getEncoded();
             return hashPassword;
         }
@@ -37,8 +34,7 @@ public class LoginAuth
         saltTemp = newSalt;
 
         byte[] newHash = GenerateHash(newPass, newSalt);
-        System.out.println(newSalt.toString());
-        System.out.println(newHash);
+        System.out.println(new String(newHash));
 
         return true;
     }
@@ -46,8 +42,7 @@ public class LoginAuth
             throws IllegalArgumentException
     {
         byte[] checkedHash = GenerateHash(enteredPass, saltTemp);
-        System.out.println(saltTemp.toString());
-        System.out.println(checkedHash);
+        System.out.println(new String(checkedHash));
 
         return true;
     }
