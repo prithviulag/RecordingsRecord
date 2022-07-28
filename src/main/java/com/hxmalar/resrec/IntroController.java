@@ -12,8 +12,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-import java.io.FileNotFoundException;
-
 public class IntroController {
     @FXML
     private VBox container;
@@ -55,10 +53,14 @@ public class IntroController {
     }
     @FXML
     protected void onIntroEnterClick()
+            throws IllegalArgumentException
     {
         introHeading.setText("Logging in...");
         loginContainer.setVisible(false);
         lowerMenu.setVisible(false);
+        String inputPass = passField.getText();
+        LoginAuth.RegisterLogin(inputPass);
+        LoginAuth.VerifyLogin(inputPass);
     }
 
     @FXML
