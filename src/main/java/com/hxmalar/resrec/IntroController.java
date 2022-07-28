@@ -60,7 +60,8 @@ public class IntroController {
         lowerMenu.setVisible(false);
         String inputPass = passField.getText();
         LoginAuth.RegisterLogin(inputPass);
-        LoginAuth.VerifyLogin(inputPass);
+        //LoginAuth.VerifyLogin(inputPass);
+        inputPass = "";
     }
 
     @FXML

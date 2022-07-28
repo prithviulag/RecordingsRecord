@@ -17,6 +17,9 @@ public class LoginAuth
         {
             KeySpec keySpecif = new PBEKeySpec(input.toCharArray(), hashSalt, 65536, 128);
             SecretKeyFactory keyFact = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+            byte[] earlyHashPass = keyFact.generateSecret(keySpecif).getEncoded();
+            System.out.println(earlyHashPass);
+
             byte[] hashPassword = keyFact.generateSecret(keySpecif).getEncoded();
             return hashPassword;
         }
