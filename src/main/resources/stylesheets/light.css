@@ -33,6 +33,6 @@ Button:hover {
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #1b6e37, #46354d);
 }
 
-#introExit {
+#introExit, #themeToggle {
     -fx-border-width: 0px;
 }

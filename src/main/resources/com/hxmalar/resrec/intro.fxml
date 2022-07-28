@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.hxmalar.resrec.IntroController"
       fx:id="container">
@@ -19,13 +20,16 @@
     <ImageView fx:id="logo"></ImageView>
 
     <Label text="Log In" fx:id="introHeading"/>
-    <TextField promptText="Username" fx:id="userField" onAction="#onIntroEnterClick"/>
-    <PasswordField promptText="Password" fx:id="passField" onAction="#onIntroEnterClick"/>
-    <Button text="Submit" fx:id="introEnter" onAction="#onIntroEnterClick"/>
-
-    <!--<ImageView fx:id="themeToggle"> need event handler for ImageView-->
-    <Button text="Toggle Theme" fx:id="themeToggle" onAction="#toggleTheme"/>
-    <!--</ImageView>-->
+    <VBox alignment="CENTER" spacing="10.0" fx:id="loginContainer">
+        <TextField promptText="Username" fx:id="userField" onAction="#onIntroEnterClick"/>
+        <PasswordField promptText="Password" fx:id="passField" onAction="#onIntroEnterClick"/>
+        <Button text="Submit" fx:id="introEnter" onAction="#onIntroEnterClick"/>
+    </VBox>
     <Label text="Re|cording|s Rec|ord|" id="lowerText"/>
-    <Button text="Exit" fx:id="introExit" onAction="#onIntroExitClick"/>
+    <HBox alignment="CENTER" spacing="40.0" fx:id="lowerMenu">
+        <!--<ImageView fx:id="themeToggle"> need event handler for ImageView-->
+        <Button text="Toggle Theme" fx:id="themeToggle" onAction="#toggleTheme"/>
+        <!--</ImageView>-->
+        <Button text="Exit" fx:id="introExit" onAction="#onIntroExitClick"/>
+    </HBox>
 </VBox>

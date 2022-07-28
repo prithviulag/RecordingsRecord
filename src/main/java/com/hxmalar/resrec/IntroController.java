@@ -9,6 +9,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.io.FileNotFoundException;
@@ -16,6 +17,8 @@ import java.io.FileNotFoundException;
 public class IntroController {
     @FXML
     private VBox container;
+    @FXML
+    private VBox loginContainer;
     @FXML
     private Label introHeading;
     @FXML
@@ -30,6 +33,8 @@ public class IntroController {
     private ImageView logo;
     @FXML
     private Button themeToggle;
+    @FXML
+    private HBox lowerMenu;
     private Scene introScene;
     private String themeSetting;
 
@@ -52,12 +57,8 @@ public class IntroController {
     protected void onIntroEnterClick()
     {
         introHeading.setText("Logging in...");
-        userField.setVisible(false);
-        passField.setVisible(false);
-        introEnter.setVisible(false);
-        introExit.setVisible(false);
-        introExit.setVisible(false);
-        themeToggle.setVisible(false);
+        loginContainer.setVisible(false);
+        lowerMenu.setVisible(false);
     }
 
     @FXML
